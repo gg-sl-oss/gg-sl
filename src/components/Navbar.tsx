@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-8 flex justify-between">
       <h1 className="text-2xl font-bold text-white">GG-SL</h1>
-      <ul className="flex gap-16 max-w-2xl mx-auto font-semibold">
+      <ul className="md:flex gap-16 max-w-2xl mx-auto font-semibold">
         <li className="text-white">
           <Link to="/">Home</Link>
         </li>

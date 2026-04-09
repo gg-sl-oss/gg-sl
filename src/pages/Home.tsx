@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const Home = () => {
   return (
     <main>
-      <section className="max-w-3xl mx-auto py-16 min-h-screen">
+      <section className="max-w-3xl md:mx-auto mx-4 py-16 min-h-screen">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-8 h-px bg-neutral-400" />
           <span className="text-xs tracking-widest uppercase text-neutral-500 font-sans">
@@ -11,7 +11,7 @@ const Home = () => {
           </span>
           <div className="w-8 h-px bg-neutral-400" />
         </div>
-        <h1 className="font-serif text-5xl md:text-6xl font-normal leading-[1.1] text-neutral-900 mb-6">
+        <h1 className="font-serif text-4xl md:text-6xl font-normal leading-[1.1] text-neutral-900 mb-6">
           Delivering high-quality software solutions that <em>scale.</em>
         </h1>
         <p className="text-base font-light leading-relaxed text-neutral-500 max-w-lg mb-10">
