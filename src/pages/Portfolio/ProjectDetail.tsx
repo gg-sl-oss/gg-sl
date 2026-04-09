@@ -229,7 +229,7 @@ export default function ProjectDetail() {
                 {section.image && (
                   <div
                     className="aspect-16/10 overflow-hidden bg-neutral-100"
-                    onClick={() => setActiveImage(section.image)}
+                    onClick={() => setActiveImage(section.image || null)}
                   >
                     <img
                       src={section.image}
