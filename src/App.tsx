@@ -12,11 +12,11 @@ function App() {
     <main className="min-h-screen">
       <Navbar />
       <Routes>
-        <Route path="/gg-sl" element={<Home />} />
-        <Route path="/gg-sl/portfolio" element={<Portfolio />} />
-        <Route path="/gg-sl/portfolio/:projectName" element={<ProjectDetail />} />
-        <Route path="/gg-sl/about" element={<About />} />
-        <Route path="/gg-sl/contact" element={<Contact />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:projectName" element={<ProjectDetail />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </main>
