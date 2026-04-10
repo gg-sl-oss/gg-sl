@@ -8,11 +8,13 @@ import zeroTraceAIPlanner from "../../assets/zeroTraceAIPlanner.png";
 import zeroTraceMembersManagement from "../../assets/zeroTraceMembersManagement.png";
 import zeroTraceVendorDetails from "../../assets/zeroTraceVendorDetails.png";
 import zeroTracePVP from "../../assets/zeroTracePVP.png";
-import { useEffect, useState } from "react";
+import mysteryOMatic from "../../assets/mysteryOmatic.png";
+import mysteryOMaticGame from "../../assets/mysteryOmatic2.png";
+import { useEffect, useState, type JSX } from "react";
 
 type ProjectSection = {
   title?: string;
-  description?: string;
+  description?: string | JSX.Element;
   image?: string;
 };
 
@@ -105,6 +107,39 @@ const projects: Project[] = [
         description:
           "Also, for vendors who belong to specific groups together, a platform to onboard, and manage their members. With dedicated onboarding surveys and responses from potential members.",
         image: zeroTraceMembersManagement,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Mystery-O-Matic",
+    category: "Web Application",
+    year: "2025",
+    stack: ["Python", "JavaScript", "HTML", "CSS"],
+    image: mysteryOMatic,
+    slug: "mysteryOMatic",
+    description:
+      "A web game where players can solve daily murder mystery in just 5 minutes and slowly uncover how to defeat the evil timeloop. It supports English, Spanish and Russian.",
+    sections: [
+      {
+        description: (
+          <>
+            The site is a Python program used to produce a random murder mystery
+            to solve using fuzzing testing. Once a mystery is generated, it
+            produces a static html file that contains all the clues (and the
+            solution to verify it). It uses{" "}
+            <Link
+              to="https://github.com/crytic/echidna/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Echidna
+            </Link>{" "}
+            to generate the murder mystery and its solution.            
+          </>
+        ),
+        image: mysteryOMaticGame,
       },
     ],
   },
