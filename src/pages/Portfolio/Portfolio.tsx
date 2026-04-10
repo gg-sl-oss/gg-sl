@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router";
 import earthicalHomePage from "../../assets/earthicalHomePage.png";
 import zeroTraceHomePage from "../../assets/zeroTraceHomePage.png";
+import mysteryOMatic from "../../assets/mysteryOmatic.png";
 
 type Project = {
   id: number;
   title: string;
-  category: string;
+  category: string[];
   year: string;
   stack: string[];
   image: string;
@@ -17,7 +18,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Earthical",
-    category: "Web Application",
+    category: ["Web Application"],
     year: "2024",
     stack: [
       "AWS Amplify",
@@ -33,17 +34,26 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Zero Trace Weddings",
-    category: "Web Application",
+    category: ["Web Application", "AI"],
     year: "2025",
     stack: ["Next.js", "Node.js", "TypeScript", "Tailwind CSS"],
     image: zeroTraceHomePage,
     slug: "zeroTrace",
   },
+  {
+    id: 3,
+    title: "Mystery-O-Matic",
+    category: ["Web Application", "Game Development"],
+    year: "2025",
+    stack: ["Python", "JavaScript", "HTML", "CSS"],
+    image: mysteryOMatic,
+    slug: "mysteryOMatic",
+  },
 ];
 
 const categories = [
   "All",
-  ...Array.from(new Set(projects.map((p) => p.category))),
+  ...Array.from(new Set(projects.map((p) => p.category).flat())),
 ];
 
 function ProjectCard({ project }: { project: Project }) {
@@ -112,7 +122,7 @@ export default function PortfolioPage() {
   const filtered =
     activeCategory === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.category.includes(activeCategory));
 
   return (
     <main>
