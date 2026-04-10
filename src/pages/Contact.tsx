@@ -51,8 +51,7 @@ export default function ContactPage() {
             {/* Left — contact info */}
             <div className="flex flex-col gap-6">
               {[
-                { label: "Email", value: "gustavo.grieco@gmail.com" },
-                { label: "Phone", value: "+34 666 666 666" },
+                { label: "Email", value: "gg@gg-sl.com" },
                 {
                   label: "Location",
                   value: "Barcelona, Spain\nAvailable worldwide",
