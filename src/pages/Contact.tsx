@@ -45,9 +45,9 @@ export default function ContactPage() {
           </div>
           {/* Right — form */}
           <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLScA31Oj7A3u0zfaZJkXLCD3JCO-nOTTkiX4d4Ydo92wfHq5Qg/viewform?embedded=true"
-            width={640}
-            height={961}
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeapl9X5n_ahL6y-E_TBp8gs82zFMWD_WXu7O9hlzetnUz_xA/viewform?embedded=true"
+            width="640"
+            height="961"
           >
             Loading…
           </iframe>
