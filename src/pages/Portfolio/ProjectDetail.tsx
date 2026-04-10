@@ -11,6 +11,7 @@ import zeroTracePVP from "../../assets/zeroTracePVP.png";
 import mysteryOMatic from "../../assets/mysteryOmatic.png";
 import mysteryOMaticGame from "../../assets/mysteryOmatic2.png";
 import { useEffect, useState, type JSX } from "react";
+import { Helmet } from "react-helmet-async";
 
 type ProjectSection = {
   title?: string;
@@ -136,7 +137,7 @@ const projects: Project[] = [
             >
               Echidna
             </Link>{" "}
-            to generate the murder mystery and its solution.            
+            to generate the murder mystery and its solution.
           </>
         ),
         image: mysteryOMaticGame,
@@ -174,137 +175,153 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main>
-      <section className="max-w-5xl mx-auto py-16 px-6">
-        {/* Back link */}
-        <Link
-          to="/portfolio"
-          className="text-xs tracking-wide text-neutral-400 hover:text-neutral-700 transition-colors"
-        >
-          ← Back to portfolio
-        </Link>
+    <>
+      <Helmet>
+        <title>{project.title} – GG SL Web Development Studio</title>
+        <meta name="description" content={project.description} />
 
-        {/* Header */}
-        <div className="mt-8 mb-10">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-px bg-neutral-400" />
-            <span className="text-xs tracking-widest uppercase text-neutral-500">
-              {project.category}
-            </span>
-            <div className="w-8 h-px bg-neutral-400" />
-          </div>
-
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h1 className="font-serif text-5xl md:text-6xl font-normal leading-[1.1] text-neutral-900">
-              {project.title}
-            </h1>
-
-            <span className="text-sm font-mono text-neutral-400">
-              {project.year}
-            </span>
-          </div>
-        </div>
-
-        <div className="h-px bg-neutral-200 mb-10" />
-
-        {/* Hero Image */}
-        <div
-          className="aspect-16/10 overflow-hidden bg-neutral-100 mb-12"
-          onClick={() => setActiveImage(project.image)}
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
-          />
-        </div>
-
-        {/* Overview + Sidebar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Left */}
-          <div className="md:col-span-2">
-            <h2 className="font-serif text-2xl text-neutral-900 mb-4">
-              Overview
-            </h2>
-            <p className="text-base font-light text-neutral-600 leading-relaxed">
-              {project.description}
-            </p>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-8 md:sticky md:top-24 h-fit">
-            <div>
-              <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-3">
-                Stack
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs font-light px-2.5 py-1 bg-neutral-100 text-neutral-500"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Sections */}
-        <div className="mt-20 space-y-24">
-          {project.sections.map((section, index) => (
-            <div key={index}>
-              <div
-                className={`grid md:grid-cols-2 gap-10 items-center ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Image */}
-                {section.image && (
-                  <div
-                    className="aspect-16/10 overflow-hidden bg-neutral-100"
-                    onClick={() => setActiveImage(section.image || null)}
-                  >
-                    <img
-                      src={section.image}
-                      alt={section.title || `Project image ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
-                    />
-                  </div>
-                )}
-
-                {/* Text */}
-                <div>
-                  {section.title && (
-                    <h2 className="font-serif text-2xl text-neutral-900 mb-4">
-                      {section.title}
-                    </h2>
-                  )}
-                  {section.description && (
-                    <p className="text-base font-light text-neutral-600 leading-relaxed">
-                      {section.description}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-neutral-200 my-16" />
-
-        {/* Footer */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <meta property="og:title" content={project.title} />
+        <meta
+          property="og:description"
+          content={`${project.description} Built by GG SL, a web development studio.`}
+        />
+        <meta
+          property="og:url"
+          content={`https://gg-sl.com/portfolio/${project.slug}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={project.image} />
+      </Helmet>
+      <main>
+        <section className="max-w-5xl mx-auto py-16 px-6">
+          {/* Back link */}
           <Link
             to="/portfolio"
-            className="text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
+            className="text-xs tracking-wide text-neutral-400 hover:text-neutral-700 transition-colors"
           >
             ← Back to portfolio
           </Link>
 
-          <Link to="/contact">
+          {/* Header */}
+          <div className="mt-8 mb-10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-px bg-neutral-400" />
+              <span className="text-xs tracking-widest uppercase text-neutral-500">
+                {project.category}
+              </span>
+              <div className="w-8 h-px bg-neutral-400" />
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <h1 className="font-serif text-5xl md:text-6xl font-normal leading-[1.1] text-neutral-900">
+                {project.title}
+              </h1>
+
+              <span className="text-sm font-mono text-neutral-400">
+                {project.year}
+              </span>
+            </div>
+          </div>
+
+          <div className="h-px bg-neutral-200 mb-10" />
+
+          {/* Hero Image */}
+          <div
+            className="aspect-16/10 overflow-hidden bg-neutral-100 mb-12"
+            onClick={() => setActiveImage(project.image)}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+
+          {/* Overview + Sidebar */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* Left */}
+            <div className="md:col-span-2">
+              <h2 className="font-serif text-2xl text-neutral-900 mb-4">
+                Overview
+              </h2>
+              <p className="text-base font-light text-neutral-600 leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-8 md:sticky md:top-24 h-fit">
+              <div>
+                <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-3">
+                  Stack
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs font-light px-2.5 py-1 bg-neutral-100 text-neutral-500"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sections */}
+          <div className="mt-20 space-y-24">
+            {project.sections.map((section, index) => (
+              <div key={index}>
+                <div
+                  className={`grid md:grid-cols-2 gap-10 items-center ${
+                    index % 2 === 1 ? "md:flex-row-reverse" : ""
+                  }`}
+                >
+                  {/* Image */}
+                  {section.image && (
+                    <div
+                      className="aspect-16/10 overflow-hidden bg-neutral-100"
+                      onClick={() => setActiveImage(section.image || null)}
+                    >
+                      <img
+                        src={section.image}
+                        alt={section.title || `Project image ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                      />
+                    </div>
+                  )}
+
+                  {/* Text */}
+                  <div>
+                    {section.title && (
+                      <h2 className="font-serif text-2xl text-neutral-900 mb-4">
+                        {section.title}
+                      </h2>
+                    )}
+                    {section.description && (
+                      <p className="text-base font-light text-neutral-600 leading-relaxed">
+                        {section.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-neutral-200 my-16" />
+
+          {/* Footer */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <Link
+              to="/portfolio"
+              className="text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
+            >
+              ← Back to portfolio
+            </Link>
+
             <div>
               <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-3">
                 Interested?
@@ -315,36 +332,36 @@ export default function ProjectDetail() {
                 </button>
               </Link>
             </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* Image Modal */}
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-6"
-          onClick={() => setActiveImage(null)}
-        >
-          <div
-            className="relative max-w-7xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setActiveImage(null)}
-              className="absolute -top-10 right-0 text-white text-sm tracking-wide"
-            >
-              Close ✕
-            </button>
-
-            <img
-              src={activeImage}
-              alt="Expanded view"
-              className="w-full h-auto max-h-[85vh] object-contain"
-            />
           </div>
-        </div>
-      )}
-    </main>
+        </section>
+
+        {/* Image Modal */}
+        {activeImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-6"
+            onClick={() => setActiveImage(null)}
+          >
+            <div
+              className="relative max-w-7xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setActiveImage(null)}
+                className="absolute -top-10 right-0 text-white text-sm tracking-wide"
+              >
+                Close ✕
+              </button>
+
+              <img
+                src={activeImage}
+                alt="Expanded view"
+                className="w-full h-auto max-h-[85vh] object-contain"
+              />
+            </div>
+          </div>
+        )}
+      </main>
+    </>
   );
 }
