@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import earthicalHomePage from "../../assets/earthicalHomePage.png";
 import zeroTraceHomePage from "../../assets/zeroTraceHomePage.png";
 import mysteryOMatic from "../../assets/mysteryOmatic.png";
+import mtiaReMenu from "../../assets/mtiaReMenu.png";
 import { Helmet } from "react-helmet-async";
 
 type Project = {
@@ -13,6 +14,7 @@ type Project = {
   stack: string[];
   image: string;
   slug: string;
+  containImages?: boolean;
 };
 
 const projects: Project[] = [
@@ -50,6 +52,16 @@ const projects: Project[] = [
     image: mysteryOMatic,
     slug: "mysteryOMatic",
   },
+  {
+    id: 4,
+    title: "My Teacher is an Alien",
+    category: ["Reverse Engineering"],
+    year: "2024–",
+    stack: ["C++", "Python", "Ghidra", "MSVC 4.20"],
+    image: mtiaReMenu,
+    slug: "myTeacherIsAnAlien",
+    containImages: true,
+  },
 ];
 
 const categories = [
@@ -68,11 +80,11 @@ function ProjectCard({ project }: { project: Project }) {
         "
       >
         {/* Image */}
-        <div className="aspect-16/10 overflow-hidden bg-neutral-100">
+        <div className={`aspect-16/10 overflow-hidden ${project.containImages ? "bg-neutral-900" : "bg-neutral-100"}`}>
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className={`w-full h-full transition-transform duration-500 ease-out group-hover:scale-105 ${project.containImages ? "object-contain" : "object-cover"}`}
           />
         </div>
 
@@ -151,7 +163,8 @@ export default function PortfolioPage() {
               Selected <em>projects.</em>
             </h1>
             <p className="text-sm font-light text-neutral-400 md:text-right max-w-xs">
-              A selection of client work across industries and disciplines.
+              Sustainability, AI, game dev, reverse engineering; we
+              gravitate toward projects with something to prove.
             </p>
           </div>
 
@@ -201,7 +214,7 @@ export default function PortfolioPage() {
                 Got a project in mind?
               </h2>
               <p className="text-base font-light text-neutral-500">
-                We'd love to hear about it.
+                Tell us what you're working on, even if it's weird.
               </p>
             </div>
             <Link to="/contact">

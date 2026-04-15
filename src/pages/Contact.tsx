@@ -24,11 +24,11 @@ export default function ContactPage() {
           </div>
 
           <h1 className="font-serif text-5xl font-normal leading-[1.1] text-neutral-900 mb-3">
-            Let's build something <em>together.</em>
+            Tell us what you're <em>building.</em>
           </h1>
           <p className="text-base font-light leading-relaxed text-neutral-500 mb-10 max-w-sm">
-            Tell us about your project and we'll get back to you as soon as
-            possible.
+            We're selective about what we take on, but if the project is
+            interesting, we move fast. No pitch deck needed.
           </p>
 
           <div className="h-px bg-neutral-200 mb-10" />

@@ -7,17 +7,17 @@ const Home = () => {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-8 h-px bg-neutral-400" />
           <span className="text-xs tracking-widest uppercase text-neutral-500 font-sans">
-            Software Engineering
+            Software Studio · Barcelona
           </span>
           <div className="w-8 h-px bg-neutral-400" />
         </div>
         <h1 className="font-serif text-4xl md:text-6xl font-normal leading-[1.1] text-neutral-900 mb-6">
-          Delivering high-quality software solutions that <em>scale.</em>
+          We turn ambitious ideas into software people <em>actually use.</em>
         </h1>
         <p className="text-base font-light leading-relaxed text-neutral-500 max-w-lg mb-10">
-          From robust web applications to backend systems and seamless
-          integrations, we combine modern technologies with best practices to
-          build reliable, maintainable software tailored to your business needs.
+          Sustainability platforms, AI-powered planners, games built with
+          fuzzing tools, we like projects that are a little different. Small
+          team, no middlemen, sharp engineering.
         </p>
         <Link to="/contact">
           <button className="inline-flex items-center rounded gap-2 bg-neutral-900 text-white text-sm tracking-wide px-6 py-3 hover:bg-neutral-700 transition-colors hover:cursor-pointer">

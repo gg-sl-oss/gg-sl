@@ -10,6 +10,8 @@ import zeroTraceVendorDetails from "../../assets/zeroTraceVendorDetails.png";
 import zeroTracePVP from "../../assets/zeroTracePVP.png";
 import mysteryOMatic from "../../assets/mysteryOmatic.png";
 import mysteryOMaticGame from "../../assets/mysteryOmatic2.png";
+import mtiaReMenu from "../../assets/mtiaReMenu.png";
+import mtiaReGameplay from "../../assets/mtiaReGameplay.png";
 import { useEffect, useState, type JSX } from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -29,6 +31,7 @@ type Project = {
   slug: string;
   description: string;
   sections: ProjectSection[];
+  containImages?: boolean;
 };
 
 const projects: Project[] = [
@@ -48,24 +51,24 @@ const projects: Project[] = [
     image: earthicalHomePage,
     slug: "earthical",
     description:
-      "A platform for companies and individuals to participate in sustainable actions. Including planting trees and corals, delivering menstrual kits and health check ups and distributing meals.",
+      "Earthical lets people turn celebrations into impact. Instead of generic gifts, guests donate to plant trees, restore coral reefs, fund menstrual health kits, or distribute meals. We built the full platform from scratch: browsing initiatives, calculating real-world impact, and processing donations through Stripe.",
     sections: [
       {
-        title: "Gifts",
+        title: "Initiatives & Gifting",
         description:
-          "Users could browse and donate to ongoing initiatives, or suggest new initiatives for a personal celebration, conference or other event.",
+          "The core experience: browse active sustainability initiatives, pick one that resonates, and donate in someone's name. Hosts could also propose custom initiatives for weddings, conferences, or birthdays, turning any event into a fundraiser.",
         image: earthicalInitiatives,
       },
       {
         title: "Impact Calculator",
         description:
-          "An impact calculator was also created for users to see the ethical impact of their wedding, including CO2 and waste impact.",
+          "We built a calculator that translates donations into tangible numbers: kilograms of CO2 offset, meals distributed, trees planted. It gave users a concrete sense of what their money actually does, which made a measurable difference in conversion.",
         image: earthicalImpactCalculator,
       },
       {
-        title: "Payment Processing",
+        title: "Stripe Checkout",
         description:
-          "Payment processing was handled through Stripe, with a custom checkout experience for users to donate to initiatives.",
+          "A custom Stripe integration handled one-time and recurring donations with minimal friction. We designed the checkout flow to feel native to the platform rather than a redirect to a third-party page.",
         image: earthicalStripe,
       },
     ],
@@ -87,26 +90,30 @@ const projects: Project[] = [
     image: zeroTraceHomePage,
     slug: "zeroTrace",
     description:
-      "A platform designed to help couples match with like-minded vendors and reduce wedding waste through curated vendors, planning tools, and sustainability insights.",
+      "Zero Trace is a marketplace that connects couples with sustainable wedding vendors. But it's more than a directory; we built an AI planner that interviews couples about their style and values, then matches them with the right vendors. Plus a full vendor management platform for onboarding, partnerships, and member networks.",
     sections: [
       {
+        title: "Vendor Profiles",
         description:
-          "The site included a vendor directory and vendor profile pages where vendors could showcase thier services and sustainability commitments.",
+          "Each vendor gets a rich profile page to showcase their services, pricing, and sustainability commitments. Couples can browse, compare, and shortlist, all without leaving the platform.",
         image: zeroTraceVendorDetails,
       },
       {
+        title: "AI Wedding Planner",
         description:
-          "A conversational AI wedding planner, matching couples with vendors which aligned with their preferred style and needs.",
+          "A conversational AI that asks couples about their budget, style, and priorities, then recommends a curated shortlist of vendors. It feels like chatting with a knowledgeable friend, not filling out a form.",
         image: zeroTraceAIPlanner,
       },
       {
+        title: "Partner Vendor Pages",
         description:
-          "For vendors such as planners and venues, a dedicated page where they can manage and showcase the other vendors they recommend and choose to work with.",
+          "Planners and venues often have preferred vendors they regularly work with. We built dedicated pages where they can curate and showcase these partnerships, a trust signal for couples and a referral channel for vendors.",
         image: zeroTracePVP,
       },
       {
+        title: "Members Management",
         description:
-          "Also, for vendors who belong to specific groups together, a platform to onboard, and manage their members. With dedicated onboarding surveys and responses from potential members.",
+          "For vendor collectives and associations: a back-office platform to onboard new members, manage applications, send surveys, and track responses. Built to replace the spreadsheets and email chains they were drowning in.",
         image: zeroTraceMembersManagement,
       },
     ],
@@ -120,15 +127,13 @@ const projects: Project[] = [
     image: mysteryOMatic,
     slug: "mysteryOMatic",
     description:
-      "A web game where players can solve daily murder mystery in just 5 minutes and slowly uncover how to defeat the evil timeloop. It supports English, Spanish and Russian.",
+      "A daily murder mystery game you can solve in five minutes. Each day a new case is generated; new suspects, new clues, new solution. Players piece together evidence to crack the case and slowly uncover a meta-narrative about breaking a time loop. Available in English, Spanish, and Russian.",
     sections: [
       {
+        title: "Fuzzing Meets Fiction",
         description: (
           <>
-            The site is a Python program used to produce a random murder mystery
-            to solve using fuzzing testing. Once a mystery is generated, it
-            produces a static html file that contains all the clues (and the
-            solution to verify it). It uses{" "}
+            Here's the unusual part: each mystery is generated using{" "}
             <Link
               to="https://github.com/crytic/echidna/"
               target="_blank"
@@ -136,11 +141,120 @@ const projects: Project[] = [
               className="text-blue-500 hover:underline"
             >
               Echidna
-            </Link>{" "}
-            to generate the murder mystery and its solution.
+            </Link>
+            , a smart contract fuzzing tool repurposed for game design. A Python
+            backend defines the rules of a valid mystery (motive, opportunity,
+            evidence) and Echidna explores the possibility space to find
+            combinations that are solvable but not obvious. The output is a
+            static HTML file with all clues baked in, so there's no server
+            needed at runtime.
           </>
         ),
         image: mysteryOMaticGame,
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "My Teacher is an Alien",
+    category: "Reverse Engineering",
+    year: "2024–",
+    stack: ["C++", "Python", "Ghidra", "MSVC 4.20", "Makefile"],
+    image: mtiaReMenu,
+    slug: "myTeacherIsAnAlien",
+    containImages: true,
+    description:
+      "An ongoing source code reconstruction of the 1997 Windows 95 point-and-click adventure game originally developed by 7th Level / Byron Preiss Multimedia. This is not the original game and we did not develop it. The goal is to reconstruct the lost C++ source code from the compiled binary, purely for software preservation and historical research. No game assets, executables, or copyrighted media are included or distributed.",
+    sections: [
+      {
+        title: "Instruction-Level Accuracy",
+        description: (
+          <>
+            This isn't a remake, a port, or a reimplementation. It's a
+            reconstruction of source code that no longer exists. Each function
+            is reverse-engineered from the original compiled binary using{" "}
+            <Link
+              to="https://ghidra-sre.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Ghidra
+            </Link>
+            , then rewritten in C++ and compiled with the original Microsoft
+            Visual C++ 4.20 compiler. The output is compared against the
+            original executable at the assembly level using Levenshtein distance
+            to verify accuracy. Current progress: 1,406 of 1,406 functions
+            reconstructed for the full game (100%), and 817 of 876 for the demo
+            (93.26%).
+          </>
+        ),
+        image: mtiaReGameplay,
+      },
+      {
+        title: "Tooling & Verification Pipeline",
+        description: (
+          <>
+            A custom Python toolchain automates the compile-and-compare cycle:
+            each function is compiled individually, its assembly output is diffed
+            against the original binary, and deviations are flagged. Scripts
+            verify vtable layouts, global data ordering, and call targets to
+            catch structural regressions early. The project builds on Linux and
+            macOS via{" "}
+            <Link
+              to="https://github.com/decompals/wibo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              wibo
+            </Link>
+            , an open-source Win32 PE loader, and runs through{" "}
+            <Link
+              to="https://dreamm.aarongiles.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              DREAMM
+            </Link>
+            , a compatibility layer for classic Windows 95/98 games.
+          </>
+        ),
+      },
+      {
+        title: "Preservation, Not Distribution",
+        description: (
+          <>
+            To be clear: we did not create the original game, and this project
+            does not distribute it. The repository is licensed under GPL-3.0 and
+            contains only reconstructed source code, build tooling, and API
+            headers for third-party libraries (Miles Sound System, Smacker
+            Video). No copyrighted game assets, executables, artwork, audio, or
+            video are included. Running the reconstructed binary still requires
+            the original CD-ROM. The project follows the same methodology as
+            established preservation efforts like{" "}
+            <Link
+              to="https://github.com/decompals"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              decompals
+            </Link>
+            , OpenRCT2, and similar community-driven reconstructions. Source
+            code is available on{" "}
+            <Link
+              to="https://github.com/neuromancer/my-teacher-is-an-alien-re"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              GitHub
+            </Link>
+            .
+          </>
+        ),
       },
     ],
   },
@@ -227,13 +341,13 @@ export default function ProjectDetail() {
 
           {/* Hero Image */}
           <div
-            className="aspect-16/10 overflow-hidden bg-neutral-100 mb-12"
+            className={`overflow-hidden mb-12 ${project.containImages ? "bg-neutral-900" : "aspect-16/10 bg-neutral-100"}`}
             onClick={() => setActiveImage(project.image)}
           >
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              className={`w-full h-full transition-transform duration-300 hover:scale-[1.02] ${project.containImages ? "object-contain max-h-[70vh] mx-auto" : "object-cover"}`}
             />
           </div>
 
@@ -281,13 +395,13 @@ export default function ProjectDetail() {
                   {/* Image */}
                   {section.image && (
                     <div
-                      className="aspect-16/10 overflow-hidden bg-neutral-100"
+                      className={`overflow-hidden ${project.containImages ? "bg-neutral-900" : "aspect-16/10 bg-neutral-100"}`}
                       onClick={() => setActiveImage(section.image || null)}
                     >
                       <img
                         src={section.image}
                         alt={section.title || `Project image ${index + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                        className={`w-full h-full transition-transform duration-300 hover:scale-[1.02] ${project.containImages ? "object-contain" : "object-cover"}`}
                       />
                     </div>
                   )}
