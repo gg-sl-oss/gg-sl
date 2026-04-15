@@ -15,23 +15,23 @@ export default function ContactPage() {
         <section className="max-w-4xl mx-auto py-16 px-6">
           {/* Eyebrow */}
           <div className="flex items-center gap-3 mb-7">
-            <div className="w-8 h-px bg-neutral-400" />
+            <div className="w-8 h-px bg-slate-400" />
 
-            <span className="text-xs tracking-widest uppercase text-neutral-500">
+            <span className="text-xs tracking-widest uppercase text-slate-500">
               Get in touch
             </span>
-            <div className="w-8 h-px bg-neutral-400" />
+            <div className="w-8 h-px bg-slate-400" />
           </div>
 
-          <h1 className="font-serif text-5xl font-normal leading-[1.1] text-neutral-900 mb-3">
+          <h1 className="font-serif text-5xl font-normal leading-[1.1] text-slate-900 mb-3">
             Tell us what you're <em>building.</em>
           </h1>
-          <p className="text-base font-light leading-relaxed text-neutral-500 mb-10 max-w-sm">
+          <p className="text-base font-light leading-relaxed text-slate-500 mb-10 max-w-sm">
             We're selective about what we take on, but if the project is
             interesting, we move fast. No pitch deck needed.
           </p>
 
-          <div className="h-px bg-neutral-200 mb-10" />
+          <div className="h-px bg-slate-200 mb-10" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left — contact info */}
@@ -44,10 +44,10 @@ export default function ContactPage() {
                 },
               ].map(({ label, value }) => (
                 <div key={label}>
-                  <p className="text-xs tracking-widest uppercase text-neutral-400 mb-1">
+                  <p className="text-xs tracking-widest uppercase text-slate-400 mb-1">
                     {label}
                   </p>
-                  <p className="text-sm text-neutral-800 whitespace-pre-line">
+                  <p className="text-sm text-slate-800 whitespace-pre-line">
                     {value}
                   </p>
                 </div>

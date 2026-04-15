@@ -278,10 +278,10 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <main className="max-w-4xl mx-auto py-24 px-6 text-center">
-        <h1 className="font-serif text-3xl text-neutral-400">
+        <h1 className="font-serif text-3xl text-slate-400">
           Project not found.
         </h1>
-        <Link to="/portfolio" className="text-sm text-neutral-500 mt-4 block">
+        <Link to="/portfolio" className="text-sm text-slate-500 mt-4 block">
           ← Back to portfolio
         </Link>
       </main>
@@ -311,7 +311,7 @@ export default function ProjectDetail() {
           {/* Back link */}
           <Link
             to="/portfolio"
-            className="text-xs tracking-wide text-neutral-400 hover:text-neutral-700 transition-colors"
+            className="text-xs tracking-wide text-slate-400 hover:text-slate-700 transition-colors"
           >
             ← Back to portfolio
           </Link>
@@ -319,29 +319,29 @@ export default function ProjectDetail() {
           {/* Header */}
           <div className="mt-8 mb-10">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-px bg-neutral-400" />
-              <span className="text-xs tracking-widest uppercase text-neutral-500">
+              <div className="w-8 h-px bg-slate-400" />
+              <span className="text-xs tracking-widest uppercase text-slate-500">
                 {project.category}
               </span>
-              <div className="w-8 h-px bg-neutral-400" />
+              <div className="w-8 h-px bg-slate-400" />
             </div>
 
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <h1 className="font-serif text-5xl md:text-6xl font-normal leading-[1.1] text-neutral-900">
+              <h1 className="font-serif text-5xl md:text-6xl font-normal leading-[1.1] text-slate-900">
                 {project.title}
               </h1>
 
-              <span className="text-sm font-mono text-neutral-400">
+              <span className="text-sm font-mono text-slate-400">
                 {project.year}
               </span>
             </div>
           </div>
 
-          <div className="h-px bg-neutral-200 mb-10" />
+          <div className="h-px bg-slate-200 mb-10" />
 
           {/* Hero Image */}
           <div
-            className={`overflow-hidden mb-12 ${project.containImages ? "bg-neutral-900" : "aspect-16/10 bg-neutral-100"}`}
+            className={`overflow-hidden mb-12 ${project.containImages ? "bg-slate-800" : "aspect-16/10 bg-slate-50"}`}
             onClick={() => setActiveImage(project.image)}
           >
             <img
@@ -355,10 +355,10 @@ export default function ProjectDetail() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Left */}
             <div className="md:col-span-2">
-              <h2 className="font-serif text-2xl text-neutral-900 mb-4">
+              <h2 className="font-serif text-2xl text-slate-900 mb-4">
                 Overview
               </h2>
-              <p className="text-base font-light text-neutral-600 leading-relaxed">
+              <p className="text-base font-light text-slate-600 leading-relaxed">
                 {project.description}
               </p>
             </div>
@@ -366,14 +366,14 @@ export default function ProjectDetail() {
             {/* Sidebar */}
             <div className="space-y-8 md:sticky md:top-24 h-fit">
               <div>
-                <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-3">
+                <h3 className="text-xs tracking-widest uppercase text-slate-400 mb-3">
                   Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs font-light px-2.5 py-1 bg-neutral-100 text-neutral-500"
+                      className="text-xs font-light px-2.5 py-1 bg-slate-50 text-slate-500"
                     >
                       {tech}
                     </span>
@@ -395,7 +395,7 @@ export default function ProjectDetail() {
                   {/* Image */}
                   {section.image && (
                     <div
-                      className={`overflow-hidden ${project.containImages ? "bg-neutral-900" : "aspect-16/10 bg-neutral-100"}`}
+                      className={`overflow-hidden ${project.containImages ? "bg-slate-800" : "aspect-16/10 bg-slate-50"}`}
                       onClick={() => setActiveImage(section.image || null)}
                     >
                       <img
@@ -409,12 +409,12 @@ export default function ProjectDetail() {
                   {/* Text */}
                   <div>
                     {section.title && (
-                      <h2 className="font-serif text-2xl text-neutral-900 mb-4">
+                      <h2 className="font-serif text-2xl text-slate-900 mb-4">
                         {section.title}
                       </h2>
                     )}
                     {section.description && (
-                      <p className="text-base font-light text-neutral-600 leading-relaxed">
+                      <p className="text-base font-light text-slate-600 leading-relaxed">
                         {section.description}
                       </p>
                     )}
@@ -425,26 +425,27 @@ export default function ProjectDetail() {
           </div>
 
           {/* Divider */}
-          <div className="h-px bg-neutral-200 my-16" />
+          <div className="h-px bg-slate-200 my-16" />
 
           {/* Footer */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <Link
               to="/portfolio"
-              className="text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
+              className="text-sm text-slate-500 hover:text-slate-800 transition-colors"
             >
               ← Back to portfolio
             </Link>
 
             <div>
-              <h3 className="text-xs tracking-widest uppercase text-neutral-400 mb-3">
+              <h3 className="text-xs tracking-widest uppercase text-slate-400 mb-3">
                 Interested?
               </h3>
               <Link to="/contact">
-                <button className="w-full inline-flex rounded items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-700 text-white text-sm tracking-wide px-5 py-3 transition-colors">
+                <button className="w-full inline-flex rounded items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm tracking-wide px-5 py-3 transition-colors">
                   Start a conversation <span>→</span>
                 </button>
               </Link>
+
             </div>
           </div>
         </section>
