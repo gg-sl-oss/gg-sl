@@ -27,8 +27,8 @@ export default function ContactPage() {
             Tell us what you're <em>building.</em>
           </h1>
           <p className="text-base font-light leading-relaxed text-slate-500 mb-10 max-w-sm">
-            We're selective about what we take on, but if the project is
-            interesting, we move fast. No pitch deck needed.
+            Big or small, we'd like to hear about it. No pitch deck
+            needed.
           </p>
 
           <div className="h-px bg-slate-200 mb-10" />

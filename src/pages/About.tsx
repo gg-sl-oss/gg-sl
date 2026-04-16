@@ -51,7 +51,7 @@ export default function AboutPage() {
             Engineers who care about what they <em>build.</em>
           </h1>
           <p className="text-base font-light leading-relaxed text-slate-500 mb-4">
-            GG-SL is a two-person studio based in Barcelona. We partner with
+            GG-SL is a software studio based in Barcelona. We partner with
             founders and product teams who have a clear vision but need
             engineering muscle to make it real.
           </p>
