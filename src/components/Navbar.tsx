@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-slate-50 border-b border-slate-200 p-8 flex justify-between items-center">
+    <nav className="bg-gradient-to-r from-slate-50 to-blue-100 border-b border-slate-200 p-8 flex justify-between items-center">
       <Link to="/">
         <img src={logo} alt="GG-SL" className="h-20" />
       </Link>
